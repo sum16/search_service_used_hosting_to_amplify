@@ -1,0 +1,46 @@
+{
+  "data": {
+      "count": 3,
+      "plans": [
+        {
+          "plan_name": "[イチオシ][3B割増なし]時間限定！セルフデー昼食付",
+          "plan_id": 1,
+          "course_name": "東京湾カントリークラブ",
+          "caption": "25分とアクセスにも恵まれ、豊富な自然林を残すフラットな地形に展開する２７ホールズ！庭園風の造りの旧ホールと難易度の高い新ホールが見事なまでに調和された戦略性の高いコースです！ ◆最新型カートナビ導入しました◆",
+          "prefecture": "東京都",
+          "image_url": "http://sallyaroundthebay.com/wp-content/uploads/2013/06/duck-Ernst-Vikne-300x300.jpg",
+          "evaluation": 3.6,
+          "price": 5900,
+          "duration": 66,
+          "reserve_url_pc": "https://www.google.com/webhp?authuser=3",
+          "stock_count": 2
+        },
+        {
+          "plan_name": "[年末年始][イチオシ]時間限定・通常/セルフ昼付",
+          "plan_id": 2,
+          "course_name": "太平山カントリーゴルフクラブ",
+          "caption": "1975年には日豪対抗プロゴルフマッチ、1977年には日本プロゴルフ東西対抗戦、そして1981年から日本女子プロゴルフトーナメント・東北クイーンズゴルフを３回開催した東北でも有数の名門コースといわれております。",
+          "prefecture": "秋田県",
+          "image_url": "http://sallyaroundthebay.com/wp-content/uploads/2013/06/duck-Ernst-Vikne-300x300.jpg",
+          "evaluation": 3.7,
+          "price": 6000,
+          "duration": 69,
+          "reserve_url_pc": "https://www.google.com/webhp?authuser=3",
+          "stock_count": 19
+        },
+        {
+          "plan_name": "[新春ＣＰ]3名以上で予約者無料！午後スルー★昼食付",
+          "plan_id": 3,
+          "course_name": "南岩手カントリークラブ",
+          "caption": "当コースは、ゲーリー･プレーヤー氏が設計を手がけた戦略的エキサイティングなコースです。 丹沢山塊の山なみを背にして、谷越え、池越え、ドックレッグなど変化に富んだレイアウト、美しい自然を最大限に生かした１８ホールのパノラマが展開されております。 「東京I.Cから55分で行ける高原コース 湘南海岸と富士箱根山系のおおらかな自然に抱かれて アットホームを満喫できるファミリーリゾート」",
+          "prefecture": "岩手県",
+          "image_url": "http://sallyaroundthebay.com/wp-content/uploads/2013/06/duck-Ernst-Vikne-300x300.jpg",
+          "evaluation": 3.6,
+          "price": 7000,
+          "duration": 73,
+          "reserve_url_pc": "https://www.google.com/webhp?authuser=3",
+          "stock_count": 5
+        }
+      ]
+    }
+}
