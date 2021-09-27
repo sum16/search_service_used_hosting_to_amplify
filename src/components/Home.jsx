@@ -16,20 +16,24 @@ registerLocale('ja', ja);
 class Home extends React.Component {
 
   // ユーザの動きに合わせて変わる値のことをstate
-  state = { date: addDays(new Date(), 14), budget: '12000', departure: '1', duration: '90', plans: [], planCount: 0}
+  state = { date: addDays(new Date(), 14), budget: '12000', departure: '1', duration: '90', plans: null, planCount: 0, error: null }
 
   onFormSubmit = async (event) => {
-    event.preventDefault();
 
-    const response = await axios.get('http://localhost:3000/data', {
-      params: { date: format(this.state.date, 'yyyyMMdd'), budget: this.state.budget, departure: this.state.departure, duration: this.state.duration }
-    });
-
-    // planCount: 0 にしてレスポンスが0だった場合の挙動を確認
-    // this.setState({ planCount: 0, plans: response.data.plans })
-    this.setState({ planCount: response.data.planCount, plans: response.data.plans })
-    {console.log(this.state.planCount)}
-    {console.log(this.state.plans)}
+    // 例外処理
+    try {
+      event.preventDefault();
+      // 意図的に例外をを起こす
+      // throw 'error';
+      const response = await axios.get('http://localhost:3000/data', {
+        params: { date: format(this.state.date, 'yyyyMMdd'), budget: this.state.budget, departure: this.state.departure, duration: this.state.duration }
+      });
+      // planCount: 0 にしてレスポンスが0だった場合の挙動を確認
+      // this.setState({ planCount: 0, plans: response.data.plans })
+      this.setState({ planCount: response.data.planCount, plans: response.data.plans })
+      } catch (e) {
+        this.setState({ error: e })
+      }    
   }
 
   render() {
@@ -76,7 +80,7 @@ class Home extends React.Component {
               </button>
             </div>
           </form>
-          <Result plans={this.state.plans} planCount={this.state.planCount}/>
+          <Result plans={this.state.plans} planCount={this.state.planCount} error={this.state.error}/>
         </div>
       </div>
     )
