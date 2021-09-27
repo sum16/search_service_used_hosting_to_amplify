@@ -8,6 +8,7 @@ import addDays from 'date-fns/addDays';
 import axios from 'axios';
 import format from 'date-fns/format';
 import Result from './Result';
+import Loading from './Loading';
 
 
 const Today = new Date();
@@ -16,13 +17,14 @@ registerLocale('ja', ja);
 class Home extends React.Component {
 
   // ユーザの動きに合わせて変わる値のことをstate
-  state = { date: addDays(new Date(), 14), budget: '12000', departure: '1', duration: '90', plans: null, planCount: 0, error: null }
+  state = { date: addDays(new Date(), 14), budget: '12000', departure: '1', duration: '90', plans: null, planCount: 0, error: null, error: false, loading:false }
 
   onFormSubmit = async (event) => {
 
     // 例外処理
     try {
       event.preventDefault();
+      this.setState({loading: true});
       // 意図的に例外をを起こす
       // throw 'error';
       const response = await axios.get('http://localhost:3000/data', {
@@ -31,6 +33,8 @@ class Home extends React.Component {
       // planCount: 0 にしてレスポンスが0だった場合の挙動を確認
       // this.setState({ planCount: 0, plans: response.data.plans })
       this.setState({ planCount: response.data.planCount, plans: response.data.plans })
+      // 処理が更新されたらロードをfalseにする
+      this.setState({loading: false});
       } catch (e) {
         this.setState({ error: e })
       }    
@@ -80,6 +84,7 @@ class Home extends React.Component {
               </button>
             </div>
           </form>
+          <Loading loading={this.state.loading}/>
           <Result plans={this.state.plans} planCount={this.state.planCount} error={this.state.error}/>
         </div>
       </div>
