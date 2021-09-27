@@ -1,0 +1,38 @@
+/* Form */
+
+.Search__Form {
+  margin: 20px 0 50px 0;
+}
+
+.Search__Button {
+  text-align: center;
+}
+
+.Search__Button__Design {
+  display: inline-block;
+  max-width: 210px;
+  text-align: left;
+  border: 2px splid #74cbcc;
+  font-size: 16px;
+  color: #74cbcc;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 16px;
+  border-radius: 4px;
+  background: #fff;
+  /*ユーザーのクリックをトリガーとして0.4秒で色が変わるように設定 */
+  transition: 0.4s;
+}
+.Search__Button__Design:active {
+  background-color: #74cbcc;
+  border-color: #74cbcc;
+  color: #fff;
+}
+
+.segment {
+  margin: 20px;
+}
+
+.search_checkbox {
+  padding-right: 16px;
+}
