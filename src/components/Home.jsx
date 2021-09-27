@@ -1,6 +1,13 @@
 import React from 'react';
 import './Common.css';
 import 'semantic-ui-css/semantic.min.css'
+import "react-datepicker/dist/react-datepicker.css"
+import DatePicker, { registerLocale } from "react-datepicker"
+import ja from 'date-fns/locale/ja';
+
+
+const Today = new Date();
+registerLocale('ja', ja);
 
 class Home extends React.Component {
   render() {
@@ -9,8 +16,13 @@ class Home extends React.Component {
         <div className="Search__Form">
           <form className="ui form segment">
             <div className="field">
-              <label>プレー日</label>
-                <input type="data" />
+              <label><i className="calendar alternate outline icon"></i>プレー日</label>
+              <DatePicker 
+              dataFormat="yyy/MM/dd"
+              locale='ja'
+              selected={Today}
+              minDate={Today}
+              />
             </div>
             <div className="field">
               <label><i className="yen sign icon"></i>上限金額</label>
