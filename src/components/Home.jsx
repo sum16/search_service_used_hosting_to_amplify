@@ -7,13 +7,16 @@ import ja from 'date-fns/locale/ja';
 import addDays from 'date-fns/addDays';
 import axios from 'axios';
 import format from 'date-fns/format';
+import Result from './Result';
 
 
 const Today = new Date();
 registerLocale('ja', ja);
 
 class Home extends React.Component {
-  state = { date: addDays(new Date(), 14), budget: '12000', departure: '1', duration: '90' }
+
+  // ユーザの動きに合わせて変わる値のことをstate
+  state = { date: addDays(new Date(), 14), budget: '12000', departure: '1', duration: '90', plans: [], planCount: 0}
 
   onFormSubmit = async (event) => {
     event.preventDefault();
@@ -21,7 +24,10 @@ class Home extends React.Component {
     const response = await axios.get('http://localhost:3000/data', {
       params: { date: format(this.state.date, 'yyyyMMdd'), budget: this.state.budget, departure: this.state.departure, duration: this.state.duration }
     });
-    this.setState({ planCount: response.data.count, plans: response.data.plans })
+
+    // planCount: 0 にしてレスポンスが0だった場合の挙動を確認
+    // this.setState({ planCount: 0, plans: response.data.plans })
+    this.setState({ planCount: response.data.planCount, plans: response.data.plans })
     {console.log(this.state.planCount)}
     {console.log(this.state.plans)}
   }
@@ -70,6 +76,7 @@ class Home extends React.Component {
               </button>
             </div>
           </form>
+          <Result plans={this.state.plans} planCount={this.state.planCount}/>
         </div>
       </div>
     )
