@@ -24,7 +24,7 @@ module Departure
   }
 end
 
-def duration_minutes() #出発地点と到着地点を引数にしている
+def duration_minutes(departure, destination) #出発地点と到着地点を引数にしている
   # Google Maps Platformを使って出発地点とゴルフ場の車での移動時間を出す
   gmaps = GoogleMapsService::Client.new(key: ENV['GOOGLE_MAP_API_KEY'])
   route = gmaps.directions(
