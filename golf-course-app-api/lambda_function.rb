@@ -1,7 +1,7 @@
 require 'rakuten_web_service'
 require 'aws-record'
 
-class SearchGolfApp # DynamoDBのテーブル名とします
+class SearchGolfApp # DynamoDBのテーブル名
   include Aws::Record
   integer_attr :golf_course_id, hash_key: true
   integer_attr :duration1 # 基準地点1からの所要時間
@@ -13,6 +13,8 @@ def lambda_handler(event:, context:)
   budget = event['budget'] # 予算
   departure = event['departure'] # 出発地点のコード
   duration = event['duration'] # 所要時間の上限
+
+  print(date)
 
   RakutenWebService.configure do |c|
     c.application_id = ENV['RAKUTEN_APPID']
