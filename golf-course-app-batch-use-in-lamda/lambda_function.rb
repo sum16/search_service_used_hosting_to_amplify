@@ -1,4 +1,13 @@
+require 'google_maps_service'
 require 'rakuten_web_service'
+require 'aws-record'
+
+class SearchGolfApp # DynamoDBのテーブル名とします
+  include Aws::Record
+  integer_attr :golf_course_id, hash_key: true
+  integer_attr :duration1 # 基準地点1からの所要時間
+  integer_attr :duration2 # 基準地点2からの所要時間
+end
 
 module Area
   # 楽天APIで定められているエリアコード（8:茨城県,11:埼玉県,12:千葉県,13:東京都,14:神奈川県）

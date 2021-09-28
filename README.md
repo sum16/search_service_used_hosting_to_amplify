@@ -31,8 +31,29 @@ DynamoDB
 Lambda はスケーリングについても自動で行ってくれる  
   
   
-# 前提知識
+## 前提知識
   
 ```
 エンドポイントとは、特定のリソースに対して与えられた固有の一意な URI のこと
 ```
+  
+
+## local で書いたコードを Lambda にアップロードする  
+  
+local に gem をインストールするために、作成したディレクトリで以下コマンドを実行(ルートで実行しないように注意)
+vender/bundle配下にインストールする  
+
+```
+--path vendor/bundle
+```
+  
+Lambda にアップロードするためのアップロード対象のファイルを、以下コマンドで zip ファイルに圧縮する  
+lambda_function.rbとvenderをfunction.zipという名前の zip ファイルに圧縮  
+  
+```
+zip -r function.zip lambda_function.rb vendor
+```
+  
+AWS/Lambdaにログインし、「アップロード元」「.zipファイル」で作成したzipファイルを保存  
+  
+
