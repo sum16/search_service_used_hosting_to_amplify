@@ -31,6 +31,10 @@ DynamoDB
 Lambda はスケーリングについても自動で行ってくれる  
   
   
+## API Gatewayとは
+API の作成、管理が簡単にできるサービス  
+  
+  
 ## 前提知識
   
 ```
@@ -55,5 +59,7 @@ zip -r function.zip lambda_function.rb vendor
 ```
   
 AWS/Lambdaにログインし、「アップロード元」「.zipファイル」で作成したzipファイルを保存  
+  
+コードを修正する場合は、ブラウザ上での修正、または zip ファイルの圧縮・アップロードをもう一度行うことで修正したコードを反映させることができる。（Gemfile を修正する場合は、bundle install --path vendor/bundleを再度行ってアップロードする必要がある）  
   
 
