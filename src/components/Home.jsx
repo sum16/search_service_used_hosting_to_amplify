@@ -25,11 +25,15 @@ class Home extends React.Component {
     try {
       event.preventDefault();
       this.setState({loading: true});
-      // 意図的に例外をを起こす
-      // throw 'error';
+      // throw 'error';  意図的に例外をを起こす
       const response = await axios.get('http://localhost:3000/data', {
+        // 第２引数にクエリパラメータをセットできる
         params: { date: format(this.state.date, 'yyyyMMdd'), budget: this.state.budget, departure: this.state.departure, duration: this.state.duration }
       });
+      // responseのrequest/responseURL: "http://localhost:3000/data?date=20211012&budget=12000&departure=1&duration=90"
+
+      console.log(response);
+      
       // planCount: 0 にしてレスポンスが0だった場合の挙動を確認
       // this.setState({ planCount: 0, plans: response.data.plans })
       this.setState({ planCount: response.data.planCount, plans: response.data.plans })
