@@ -26,7 +26,8 @@ class Home extends React.Component {
       event.preventDefault();
       this.setState({loading: true});
       // throw 'error';  意図的に例外をを起こす
-      const response = await axios.get('http://localhost:3000/data', {
+      // apiモックのurl 'http://localhost:3000/data'
+      const response = await axios.get('https://9v9m3amo44.execute-api.ap-northeast-1.amazonaws.com/production/golf-courses?budget=13000&date=20211210&departure=1&duration=100', {
         // 第２引数にクエリパラメータをセットできる
         params: { date: format(this.state.date, 'yyyyMMdd'), budget: this.state.budget, departure: this.state.departure, duration: this.state.duration }
       });
